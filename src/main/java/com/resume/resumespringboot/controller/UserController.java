@@ -4,6 +4,7 @@ import com.resume.resumespringboot.pojo.User;
 import com.resume.resumespringboot.pojo.bo.UserBo;
 import com.resume.resumespringboot.service.UserService;
 import com.resume.resumespringboot.service.impl.UserServiceImpl;
+import com.resume.resumespringboot.utils.JSONResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ import java.util.UUID;
 public class UserController {
 
     private final UserService userService;
+    private JSONResult JSONResult;
     public Map<String, String> getErrors(BindingResult result){
         List<FieldError> errorList = result.getFieldErrors();
         Map<String,String> map = new HashMap<>();
@@ -42,11 +44,11 @@ public class UserController {
         this.userService = userService;
     }
     @PostMapping("register")
-    public String handleRegister(@Valid @RequestBody UserBo map, BindingResult bindingResult){
+    public JSONResult handleRegister(@Valid @RequestBody UserBo map, BindingResult bindingResult){
 
         if(bindingResult.hasErrors()){
             Map<String,String> errorMap =getErrors(bindingResult);
-            return errorMap.toString();
+            return JSONResult.errorMap(errorMap);
         }
         String uid = UUID.randomUUID().toString();
         User user = new User();
@@ -54,20 +56,20 @@ public class UserController {
         user.setId(uid);
         userService.saveUser(user);
         log.info("Registration Successful");
-        return "Registration Successful!";
+        return JSONResult.ok();
     }
 
     @PostMapping("login")
-    public User handleLogin(@RequestBody UserBo map){
+    public JSONResult handleLogin(@RequestBody UserBo map){
         User user = userService.findUserByCondition(map.getEmail(), map.getPassword());
-        return user;
+        return JSONResult.ok(user);
     }
 
     @PostMapping("update")
-    public String handleUpdate(@RequestBody UserBo map){
+    public JSONResult handleUpdate(@RequestBody UserBo map){
         User user = new User();
         BeanUtils.copyProperties(map, user);
-        String msg = userService.updateUser(user);
-        return msg;
+        userService.updateUser(user);
+        return JSONResult.ok();
     }
 }
