@@ -3,7 +3,6 @@ package com.resume.resumespringboot.controller;
 import com.resume.resumespringboot.pojo.User;
 import com.resume.resumespringboot.pojo.bo.UserBo;
 import com.resume.resumespringboot.service.UserService;
-import com.resume.resumespringboot.service.impl.UserServiceImpl;
 import com.resume.resumespringboot.utils.JSONResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -11,10 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.HashMap;
@@ -24,6 +20,8 @@ import java.util.UUID;
 
 @RestController
 @Slf4j
+@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("api")
 public class UserController {
 
     private final UserService userService;
@@ -61,10 +59,9 @@ public class UserController {
 
     @PostMapping("login")
     public JSONResult handleLogin(@RequestBody UserBo map){
-        User user = userService.findUserByCondition(map.getEmail(), map.getPassword());
-        return JSONResult.ok(user);
+        JSONResult JSONResult = userService.findUserByCondition(map.getEmail(), map.getPassword());
+        return JSONResult;
     }
-
     @PostMapping("update")
     public JSONResult handleUpdate(@RequestBody UserBo map){
         User user = new User();

@@ -1,5 +1,6 @@
 package com.resume.resumespringboot.exception;
 
+import com.resume.resumespringboot.utils.JSONResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -11,11 +12,10 @@ import java.util.Map;
 @ControllerAdvice
 public class ExceptionHandler {
 
+    private JSONResult JSONResult;
     @org.springframework.web.bind.annotation.ExceptionHandler(CustomException.class)
     @ResponseBody
-    public Map<String, Object> returnUserTokenResult(CustomException e){
-        Map<String, Object> map = new HashMap<>();
-        map.put("msg", e.getMessage());
-        return map;
+    public JSONResult returnUserTokenResult(CustomException e){
+        return JSONResult.errorTokenMsg(e.getMessage());
     }
 }

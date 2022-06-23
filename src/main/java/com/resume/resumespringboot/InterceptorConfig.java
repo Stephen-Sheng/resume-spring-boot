@@ -19,6 +19,6 @@ public class InterceptorConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         WebMvcConfigurer.super.addInterceptors(registry);
         registry.addInterceptor(userInfoInterceptor())
-                .addPathPatterns("/login");
+                .addPathPatterns("/register");
     }
 }
