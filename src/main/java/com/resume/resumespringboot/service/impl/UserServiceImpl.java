@@ -17,7 +17,6 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
 
     private final UserMapper userMapper;
-    private JSONResult JSONResult;
 
     @Autowired
     public UserServiceImpl(@Lazy UserMapper userMapper) {
@@ -57,8 +56,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String updateUser(User user) {
+    public JSONResult updateUser(User user) {
         userMapper.updateByPrimaryKeySelective(user);
-        return "Go!";
+        return JSONResult.ok();
     }
 }

@@ -11,7 +11,7 @@ public interface UserService {
     public User findUserById(String id);
 
     public JSONResult findUserByCondition(String email, String password);
-    public String updateUser(User user);
+    public JSONResult updateUser(User user);
 
 
 }

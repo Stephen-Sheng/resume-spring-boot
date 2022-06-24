@@ -25,7 +25,6 @@ import java.util.UUID;
 public class UserController {
 
     private final UserService userService;
-    private JSONResult JSONResult;
     public Map<String, String> getErrors(BindingResult result){
         List<FieldError> errorList = result.getFieldErrors();
         Map<String,String> map = new HashMap<>();
