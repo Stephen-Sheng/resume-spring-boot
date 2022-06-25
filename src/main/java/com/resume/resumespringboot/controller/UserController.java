@@ -47,6 +47,9 @@ public class UserController {
             Map<String,String> errorMap =getErrors(bindingResult);
             return JSONResult.errorMap(errorMap);
         }
+        if(userService.findUserByEmail(map.getEmail())){
+            return JSONResult.errorMsg("This email has been registered.");
+        }
         String uid = UUID.randomUUID().toString();
         User user = new User();
         BeanUtils.copyProperties(map, user);

@@ -54,6 +54,17 @@ public class UserServiceImpl implements UserService {
         }
 
     }
+    @Override
+    public boolean findUserByEmail(String email){
+        User user = new User();
+        user.setEmail(email);
+        Optional<User> result = Optional.ofNullable(userMapper.selectOne(user));
+        if (result.isPresent()){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
     @Override
     public JSONResult updateUser(User user) {
