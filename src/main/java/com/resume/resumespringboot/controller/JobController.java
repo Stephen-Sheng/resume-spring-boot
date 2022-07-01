@@ -44,4 +44,10 @@ public class JobController {
 
         return jsonResult;
     }
+
+    @GetMapping("get-job")
+    public JSONResult getJob(){
+        JSONResult jsonResult = jobService.getJobLst();
+        return jsonResult;
+    }
 }

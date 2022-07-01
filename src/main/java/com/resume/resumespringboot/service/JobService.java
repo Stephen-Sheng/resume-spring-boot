@@ -10,4 +10,6 @@ public interface JobService {
 
     public JSONResult saveJob(Job job);
 
+    public JSONResult getJobLst();
+
 }
