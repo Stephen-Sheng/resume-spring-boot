@@ -50,4 +50,5 @@ public class JobController {
         JSONResult jsonResult = jobService.getJobLst();
         return jsonResult;
     }
+
 }
