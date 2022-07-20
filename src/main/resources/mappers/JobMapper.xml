@@ -1,30 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.resume.resumespringboot.mapper.JobMapper">
-  <resultMap id="BaseResultMap" type="com.resume.resumespringboot.pojo.Job">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.resume.resumespringboot.mapper.JobMapper" >
+  <resultMap id="BaseResultMap" type="com.resume.resumespringboot.pojo.Job" >
     <!--
       WARNING - @mbg.generated
     -->
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="company" jdbcType="VARCHAR" property="company" />
-    <result column="location" jdbcType="VARCHAR" property="location" />
-    <result column="ddl" jdbcType="VARCHAR" property="ddl" />
-    <result column="description" jdbcType="VARCHAR" property="description" />
-    <result column="logo" jdbcType="VARCHAR" property="logo" />
-    <result column="website" jdbcType="VARCHAR" property="website" />
-    <result column="detail" jdbcType="VARCHAR" property="detail" />
-  </resultMap>
-  <resultMap id="BaseResultMap" type="com.itzixi.pojo.Job">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="company" jdbcType="VARCHAR" property="company" />
-    <result column="location" jdbcType="VARCHAR" property="location" />
-    <result column="ddl" jdbcType="VARCHAR" property="ddl" />
-    <result column="desc" jdbcType="VARCHAR" property="desc" />
-    <result column="logo" jdbcType="VARCHAR" property="logo" />
-    <result column="website" jdbcType="VARCHAR" property="website" />
-    <result column="detail" jdbcType="VARCHAR" property="detail" />
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="company" property="company" jdbcType="VARCHAR" />
+    <result column="location" property="location" jdbcType="VARCHAR" />
+    <result column="ddl" property="ddl" jdbcType="VARCHAR" />
+    <result column="logo" property="logo" jdbcType="VARCHAR" />
+    <result column="website" property="website" jdbcType="VARCHAR" />
+    <result column="detail" property="detail" jdbcType="VARCHAR" />
+    <result column="category" property="category" jdbcType="VARCHAR" />
+    <result column="employee" property="employee" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="LONGVARCHAR" />
   </resultMap>
 </mapper>

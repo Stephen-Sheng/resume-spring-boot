@@ -9,6 +9,10 @@
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="photo" jdbcType="VARCHAR" property="photo" />
+    <result column="university" jdbcType="VARCHAR" property="university" />
+    <result column="degree" jdbcType="VARCHAR" property="degree" />
+    <result column="lastUpdate" jdbcType="VARCHAR" property="lastupdate" />
   </resultMap>
   <resultMap id="BaseResultMap" type="com.resume.resumespringboot.pojo.User">
     <!--

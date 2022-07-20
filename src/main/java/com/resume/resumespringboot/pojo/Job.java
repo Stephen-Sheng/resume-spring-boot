@@ -12,13 +12,17 @@ public class Job {
 
     private String ddl;
 
-    private String description;
-
     private String logo;
 
     private String website;
 
     private String detail;
+
+    private String category;
+
+    private String employee;
+
+    private String description;
 
     /**
      * @return id
@@ -77,20 +81,6 @@ public class Job {
     }
 
     /**
-     * @return description
-     */
-    public String getDescription() {
-        return description;
-    }
-
-    /**
-     * @param description
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    /**
      * @return logo
      */
     public String getLogo() {
@@ -130,5 +120,47 @@ public class Job {
      */
     public void setDetail(String detail) {
         this.detail = detail;
+    }
+
+    /**
+     * @return category
+     */
+    public String getCategory() {
+        return category;
+    }
+
+    /**
+     * @param category
+     */
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    /**
+     * @return employee
+     */
+    public String getEmployee() {
+        return employee;
+    }
+
+    /**
+     * @param employee
+     */
+    public void setEmployee(String employee) {
+        this.employee = employee;
+    }
+
+    /**
+     * @return description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * @param description
+     */
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

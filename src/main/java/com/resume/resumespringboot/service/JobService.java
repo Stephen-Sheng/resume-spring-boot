@@ -12,4 +12,6 @@ public interface JobService {
 
     public JSONResult getJobLst();
 
+    public JSONResult getSpecJob(String jobId);
+
 }

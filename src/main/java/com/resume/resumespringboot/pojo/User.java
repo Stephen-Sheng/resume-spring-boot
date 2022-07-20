@@ -1,9 +1,8 @@
 package com.resume.resumespringboot.pojo;
 
+import javax.persistence.Column;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Table(name = "user")
 public class User {
     @Id
     private String id;
@@ -13,6 +12,15 @@ public class User {
     private String password;
 
     private String email;
+
+    private String photo;
+
+    private String university;
+
+    private String degree;
+
+    @Column(name = "lastUpdate")
+    private String lastupdate;
 
     /**
      * @return id
@@ -68,5 +76,61 @@ public class User {
      */
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    /**
+     * @return photo
+     */
+    public String getPhoto() {
+        return photo;
+    }
+
+    /**
+     * @param photo
+     */
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    /**
+     * @return university
+     */
+    public String getUniversity() {
+        return university;
+    }
+
+    /**
+     * @param university
+     */
+    public void setUniversity(String university) {
+        this.university = university;
+    }
+
+    /**
+     * @return degree
+     */
+    public String getDegree() {
+        return degree;
+    }
+
+    /**
+     * @param degree
+     */
+    public void setDegree(String degree) {
+        this.degree = degree;
+    }
+
+    /**
+     * @return lastUpdate
+     */
+    public String getLastupdate() {
+        return lastupdate;
+    }
+
+    /**
+     * @param lastupdate
+     */
+    public void setLastupdate(String lastupdate) {
+        this.lastupdate = lastupdate;
     }
 }

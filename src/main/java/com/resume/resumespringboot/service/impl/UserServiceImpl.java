@@ -10,6 +10,8 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -48,7 +50,10 @@ public class UserServiceImpl implements UserService {
         user.setPassword(password);
         Optional<User> result = Optional.ofNullable(userMapper.selectOne(user));
         if (result.isPresent()) {
-            return JSONResult.ok(result);
+            Map<String,String> map = new HashMap<>();
+            map.put("id",result.get().getId());
+            map.put("username",result.get().getUsername());
+            return JSONResult.ok(map);
         } else {
             return JSONResult.errorMsg("Invalid email or password!");
         }

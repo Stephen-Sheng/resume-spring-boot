@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.ToString;
 
+import javax.persistence.Column;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -19,4 +20,12 @@ public class UserBo {
     private String password;
     @Email
     private String email;
+
+    private String photo;
+
+    private String university;
+
+    private String degree;
+
+    private String lastupdate;
 }

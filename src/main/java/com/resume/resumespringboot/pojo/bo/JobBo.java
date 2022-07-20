@@ -27,5 +27,10 @@ public class JobBo {
     private String website;
     @NotBlank
     private String detail;
+    @NotBlank
+    private String category;
+    @NotBlank
+    private String employee;
+
 
 }

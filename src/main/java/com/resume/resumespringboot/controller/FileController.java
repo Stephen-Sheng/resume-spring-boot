@@ -16,7 +16,7 @@ import java.util.UUID;
 
 @RestController
 @Slf4j
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("api")
 public class FileController {
 

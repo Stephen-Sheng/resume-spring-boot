@@ -51,4 +51,10 @@ public class JobController {
         return jsonResult;
     }
 
+    @GetMapping("get-specific-job/{jobId}")
+    public JSONResult getSpecificJob(@PathVariable("jobId") String jobId){
+        JSONResult jsonResult = jobService.getSpecJob(jobId);
+        return jsonResult;
+    }
+
 }
