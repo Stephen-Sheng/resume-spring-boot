@@ -53,6 +53,10 @@ public class UserServiceImpl implements UserService {
             Map<String,String> map = new HashMap<>();
             map.put("id",result.get().getId());
             map.put("username",result.get().getUsername());
+            map.put("photo",result.get().getPhoto());
+            map.put("degree",result.get().getDegree());
+            map.put("university",result.get().getUniversity());
+            map.put("lastupdate",result.get().getLastupdate());
             return JSONResult.ok(map);
         } else {
             return JSONResult.errorMsg("Invalid email or password!");

@@ -89,7 +89,6 @@
                     <include>**/*.properties</include>
                     <include>**/*.yml</include>
                     <include>**/*.xml</include>
-                    <include>static/**</include>
                 </includes>
                 <filtering>false</filtering>
             </resource>
