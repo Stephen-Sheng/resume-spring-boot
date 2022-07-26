@@ -54,9 +54,9 @@ public class ResumeController {
         return jsonResult;
     }
 
-    @GetMapping("get-info/{resumeId}")
-    public JSONResult getSpecificInfo(@PathVariable("resumeId") String resumeId){
-        JSONResult jsonResult = resumeService.queryResume(resumeId);
+    @GetMapping("get-resumes/{userId}")
+    public JSONResult getSpecificInfo(@PathVariable("userId") String userId){
+        JSONResult jsonResult = resumeService.queryResume(userId);
         return jsonResult;
     }
 

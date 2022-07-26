@@ -12,6 +12,7 @@
     <result column="email" property="email" jdbcType="VARCHAR" />
     <result column="workLocation" property="worklocation" jdbcType="VARCHAR" />
     <result column="photoUrl" property="photourl" jdbcType="VARCHAR" />
+    <result column="resumeName" property="resumename" jdbcType="VARCHAR" />
     <result column="eduInfo" property="eduinfo" jdbcType="LONGVARCHAR" />
     <result column="projectInfo" property="projectinfo" jdbcType="LONGVARCHAR" />
     <result column="orgInfo" property="orginfo" jdbcType="LONGVARCHAR" />

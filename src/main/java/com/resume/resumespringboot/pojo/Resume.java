@@ -1,7 +1,5 @@
 package com.resume.resumespringboot.pojo;
 
-import com.fasterxml.jackson.databind.JsonNode;
-
 import javax.persistence.Column;
 import javax.persistence.Id;
 
@@ -25,6 +23,9 @@ public class Resume {
 
     @Column(name = "photoUrl")
     private String photourl;
+
+    @Column(name = "resumeName")
+    private String resumename;
 
     @Column(name = "eduInfo")
     private String eduinfo;
@@ -137,6 +138,20 @@ public class Resume {
      */
     public void setPhotourl(String photourl) {
         this.photourl = photourl;
+    }
+
+    /**
+     * @return resumeName
+     */
+    public String getResumename() {
+        return resumename;
+    }
+
+    /**
+     * @param resumename
+     */
+    public void setResumename(String resumename) {
+        this.resumename = resumename;
     }
 
     /**

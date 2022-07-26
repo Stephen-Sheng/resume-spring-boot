@@ -45,9 +45,13 @@ public class JobController {
         return jsonResult;
     }
 
-    @GetMapping("get-job")
-    public JSONResult getJob(){
-        JSONResult jsonResult = jobService.getJobLst();
+    @GetMapping("get-job/{page}")
+    public JSONResult getJob(@PathVariable Integer page){
+        if (page == null) {
+            page = 1;
+        }
+        int pageSize = 9;
+        JSONResult jsonResult = jobService.getJobLst(page,pageSize);
         return jsonResult;
     }
 

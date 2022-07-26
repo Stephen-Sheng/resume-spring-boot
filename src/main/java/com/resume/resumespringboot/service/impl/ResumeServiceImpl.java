@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -19,16 +20,18 @@ import java.util.Optional;
 public class ResumeServiceImpl implements ResumeService {
 
 
-    private final ResumeMapper resumeMapper;
+
+    @Autowired
+    private ResumeMapper resumeMapper;
 
     @Autowired
     private ResumeCustomMapper resumeCustomMapper;
 
 
-    @Autowired
-    public ResumeServiceImpl(@Lazy ResumeMapper resumeMapper) {
-        this.resumeMapper = resumeMapper;
-    }
+//    @Autowired
+//    public ResumeServiceImpl(@Lazy ResumeMapper resumeMapper) {
+//        this.resumeMapper = resumeMapper;
+//    }
 
 
     @Override
@@ -51,9 +54,9 @@ public class ResumeServiceImpl implements ResumeService {
     }
 
     @Override
-    public JSONResult queryResume(String userName){
+    public JSONResult queryResume(String userId){
 
-        List<Resume> list = resumeCustomMapper.queryResumeByName(userName);
+        List<Map<String,String>> list = resumeCustomMapper.queryResumeByUser(userId);
         return JSONResult.ok(list);
     }
 

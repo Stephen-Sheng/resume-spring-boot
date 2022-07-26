@@ -10,7 +10,7 @@ public interface JobService {
 
     public JSONResult saveJob(Job job);
 
-    public JSONResult getJobLst();
+    public JSONResult getJobLst(Integer page,Integer pageSize);
 
     public JSONResult getSpecJob(String jobId);
 

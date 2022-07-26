@@ -1,6 +1,9 @@
 package com.resume.resumespringboot.service.impl;
 
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.resume.resumespringboot.mapper.JobMapper;
 import com.resume.resumespringboot.pojo.Job;
 import com.resume.resumespringboot.service.JobService;
@@ -33,11 +36,15 @@ public class JobServiceImpl implements JobService {
     }
 
     @Override
-    public JSONResult getJobLst(){
+    public JSONResult getJobLst(Integer page,Integer pageSize){
+        Page page1 = PageHelper.startPage(page,pageSize);
         Optional<List<Job>> result = Optional.ofNullable(jobMapper.selectAll());
+        Map<String,Object> map = new HashMap<>();
+        PageInfo pageInfo = new PageInfo<>(page1);
+        map.put("pages",pageInfo.getPages());
         if (result.isPresent()){
-
-            return JSONResult.ok(result);
+            map.put("dataList",result);
+            return JSONResult.ok(map);
         }
         return JSONResult.errorMsg("null");
 

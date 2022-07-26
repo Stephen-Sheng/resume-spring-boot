@@ -27,6 +27,8 @@ public class ResumeBo {
 
     private String photourl;
 
+    private String resumename;
+
     private String eduinfo;
 
     private String projectinfo;
