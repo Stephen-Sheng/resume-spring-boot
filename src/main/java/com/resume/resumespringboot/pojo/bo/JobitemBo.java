@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.ToString;
 
-import javax.persistence.Id;
 @Data
 @AllArgsConstructor
 @ToString
@@ -30,5 +29,7 @@ public class JobitemBo {
     private String city;
 
     private String company;
+
+    private String companyid;
 
 }

@@ -1,6 +1,7 @@
 package com.resume.resumespringboot.pojo;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Id;
 
 public class Jobitem {
     @Id
@@ -23,6 +24,9 @@ public class Jobitem {
     private String city;
 
     private String company;
+
+    @Column(name = "companyId")
+    private String companyid;
 
     private String responsibility;
 
@@ -164,6 +168,20 @@ public class Jobitem {
      */
     public void setCompany(String company) {
         this.company = company;
+    }
+
+    /**
+     * @return companyId
+     */
+    public String getCompanyid() {
+        return companyid;
+    }
+
+    /**
+     * @param companyid
+     */
+    public void setCompanyid(String companyid) {
+        this.companyid = companyid;
     }
 
     /**
