@@ -47,9 +47,13 @@ public class JobItemController {
         return jsonResult;
     }
 
-    @GetMapping("search-job/{condition}")
-    public JSONResult getSpecificJob(@PathVariable("condition") String condition){
-        JSONResult jsonResult = jobItemService.queryJobItemCondition(condition);
+    @GetMapping("search-job/{condition}/{page}")
+    public JSONResult getSpecificJob(@PathVariable("condition") String condition, @PathVariable("page") Integer page){
+        if (page == null) {
+            page = 1;
+        }
+        int pageSize = 3;
+        JSONResult jsonResult = jobItemService.queryJobItemCondition(page,pageSize,condition);
         return jsonResult;
     }
 

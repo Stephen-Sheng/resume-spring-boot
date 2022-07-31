@@ -12,5 +12,9 @@ public interface PostService {
 
     public JSONResult deletePost(String postId);
     public JSONResult queryPostById(String postId);
-    public JSONResult queryPostListByUserId(String userId);
+    public JSONResult queryPostListByUserId(Integer page,Integer pageSize,String userId);
+
+    public JSONResult getPostList(Integer page,Integer pageSize);
+
+    public JSONResult queryPostListCondition(Integer page, Integer pageSize, String condition);
 }

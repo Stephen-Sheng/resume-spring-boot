@@ -16,7 +16,7 @@ public class CommentBo {
 
     private String commentDate;
 
-    private String parentId;
+    private String replyTo;
 
     private String commentText;
 

@@ -16,8 +16,8 @@ public class Comment {
     @Column(name = "comment_date")
     private String commentDate;
 
-    @Column(name = "parent_id")
-    private String parentId;
+    @Column(name = "reply_to")
+    private String replyTo;
 
     @Column(name = "comment_text")
     private String commentText;
@@ -79,17 +79,17 @@ public class Comment {
     }
 
     /**
-     * @return parent_id
+     * @return reply_to
      */
-    public String getParentId() {
-        return parentId;
+    public String getReplyTo() {
+        return replyTo;
     }
 
     /**
-     * @param parentId
+     * @param replyTo
      */
-    public void setParentId(String parentId) {
-        this.parentId = parentId;
+    public void setReplyTo(String replyTo) {
+        this.replyTo = replyTo;
     }
 
     /**

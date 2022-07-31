@@ -44,12 +44,17 @@ public class JobItemServiceImpl implements JobItemService {
     }
 
     @Override
-    public JSONResult queryJobItemCondition(String itemName){
+    public JSONResult queryJobItemCondition(Integer page,Integer pageSize,String itemName){
+        Page page1 = PageHelper.startPage(page,pageSize);
         Example example = new Example(Jobitem.class);
         Example.Criteria criteria = example.createCriteria();
         criteria.andLike("itemname","%"+itemName+"%");
+        Map<String,Object> map = new HashMap<>();
         List<Jobitem> jobitem = jobItemMapper.selectByExample(example);
-        return JSONResult.ok(jobitem);
+        PageInfo pageInfo = new PageInfo<>(page1);
+        map.put("pages",pageInfo.getPages());
+        map.put("dataList",jobitem);
+        return JSONResult.ok(map);
     }
 
     @Override

@@ -4,12 +4,15 @@ import com.resume.resumespringboot.mapper.CommentMapper;
 import com.resume.resumespringboot.pojo.Comment;
 import com.resume.resumespringboot.service.CommentService;
 import com.resume.resumespringboot.utils.JSONResult;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
-
+@Service
+@Slf4j
 public class CommentServiceImpl implements CommentService {
 
     private final CommentMapper commentMapper;

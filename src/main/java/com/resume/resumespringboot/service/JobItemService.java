@@ -12,7 +12,7 @@ public interface JobItemService {
 
     public JSONResult saveJobItem(Jobitem jobitem);
 
-    public JSONResult queryJobItemCondition(String itemName);
+    public JSONResult queryJobItemCondition(Integer page,Integer pageSize,String itemName);
     public JSONResult queryRecomJobList(Integer page,Integer pageSize);
 
     public JSONResult querySpecJobItemById(String itemId);

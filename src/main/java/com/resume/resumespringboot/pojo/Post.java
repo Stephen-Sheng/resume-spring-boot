@@ -18,8 +18,12 @@ public class Post {
 
     private String category;
 
+    private String cover;
+
     @Column(name = "post_text")
     private String postText;
+
+    private String summary;
 
     /**
      * @return id
@@ -92,6 +96,20 @@ public class Post {
     }
 
     /**
+     * @return cover
+     */
+    public String getCover() {
+        return cover;
+    }
+
+    /**
+     * @param cover
+     */
+    public void setCover(String cover) {
+        this.cover = cover;
+    }
+
+    /**
      * @return post_text
      */
     public String getPostText() {
@@ -103,5 +121,19 @@ public class Post {
      */
     public void setPostText(String postText) {
         this.postText = postText;
+    }
+
+    /**
+     * @return summary
+     */
+    public String getSummary() {
+        return summary;
+    }
+
+    /**
+     * @param summary
+     */
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 }
