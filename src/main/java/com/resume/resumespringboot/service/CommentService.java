@@ -14,4 +14,6 @@ public interface CommentService {
     public JSONResult deleteComment(String commentId);
     public JSONResult queryCommentByPostId(String postId);
 
+    public JSONResult updateComment(Comment comment);
+
 }

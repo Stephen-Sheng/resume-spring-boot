@@ -43,10 +43,8 @@ public class CommentController {
             Map<String,String> errorMap = UserController.getErrors(bindingResult);
             return JSONResult.errorMap(errorMap);
         }
-        String uid = UUID.randomUUID().toString();
         Comment comment = new Comment();
         BeanUtils.copyProperties(map, comment);
-        comment.setId(uid);
         JSONResult jsonResult = commentService.saveComment(comment);
 
         return jsonResult;
@@ -70,6 +68,26 @@ public class CommentController {
     @GetMapping("findCommentsByPostId/{postId}")
     public JSONResult findCommentsByPostId(@PathVariable String postId){
         JSONResult jsonResult = commentService.queryCommentByPostId(postId);
+        return jsonResult;
+    }
+
+    @GetMapping("deleteParentComment/{commentId}")
+    public JSONResult deleteComment(@PathVariable String commentId){
+        JSONResult jsonResult = commentService.deleteComment(commentId);
+        return jsonResult;
+    }
+
+    @GetMapping("deleteChildComment/{parentId}/{childId}")
+    public JSONResult deleteChildComment(@PathVariable String parentId,@PathVariable String childId){
+        commentRelationService.deleteRelation(parentId, childId);
+        JSONResult jsonResult = commentService.deleteComment(childId);
+        return jsonResult;
+
+    }
+
+    @PostMapping("updateComment")
+    public JSONResult updateComment(@Valid @RequestBody Comment comment){
+        JSONResult jsonResult = commentService.updateComment(comment);
         return jsonResult;
     }
 
