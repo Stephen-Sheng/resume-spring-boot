@@ -73,6 +73,8 @@ public class CommentController {
 
     @GetMapping("deleteParentComment/{commentId}")
     public JSONResult deleteComment(@PathVariable String commentId){
+
+        commentRelationService.deleteParentRelation(commentId);
         JSONResult jsonResult = commentService.deleteComment(commentId);
         return jsonResult;
     }

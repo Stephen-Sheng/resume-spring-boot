@@ -14,4 +14,8 @@ public interface ResumeService {
 //    public JSONResult getSpecInfo(String email);
 
     public JSONResult queryResume(String userName);
+
+    public JSONResult editName(String id, String newName);
+
+    public JSONResult deleteResume(String id);
 }

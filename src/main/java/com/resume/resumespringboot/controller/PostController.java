@@ -48,6 +48,12 @@ public class PostController {
         return jsonResult;
     }
 
+    @GetMapping("deletePost/{postId}")
+    public JSONResult deletePost(@PathVariable String postId){
+        JSONResult jsonResult = postService.deletePost(postId);
+        return jsonResult;
+    }
+
     @GetMapping("findPostById/{postId}")
     public JSONResult findPostById(@PathVariable String postId){
         JSONResult jsonResult = postService.queryPostById(postId);

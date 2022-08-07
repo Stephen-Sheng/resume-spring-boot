@@ -10,4 +10,6 @@ public interface CommentRelationService {
     public void insertRelation(CommentRelationship commentRelationship);
 
     public void deleteRelation(String parentId,String childId);
+
+    public void deleteParentRelation(String parentId);
 }

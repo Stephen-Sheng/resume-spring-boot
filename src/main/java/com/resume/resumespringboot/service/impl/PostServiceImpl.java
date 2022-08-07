@@ -3,6 +3,7 @@ package com.resume.resumespringboot.service.impl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.resume.resumespringboot.mapper.PostCustomMapper;
 import com.resume.resumespringboot.mapper.PostMapper;
 import com.resume.resumespringboot.pojo.Jobitem;
 import com.resume.resumespringboot.pojo.Post;
@@ -24,10 +25,12 @@ import java.util.Map;
 public class PostServiceImpl implements PostService {
 
     private final PostMapper postMapper;
+    private final PostCustomMapper postCustomMapper;
 
     @Autowired
-    public PostServiceImpl(@Lazy PostMapper postMapper) {
+    public PostServiceImpl(@Lazy PostMapper postMapper,@Lazy PostCustomMapper postCustomMapper) {
         this.postMapper = postMapper;
+        this.postCustomMapper = postCustomMapper;
     }
     /**
      * @param post
@@ -45,6 +48,7 @@ public class PostServiceImpl implements PostService {
      */
     @Override
     public JSONResult deletePost(String postId) {
+        postCustomMapper.setKeyCheck();
         postMapper.deleteByPrimaryKey(postId);
         return JSONResult.ok();
     }
@@ -55,7 +59,8 @@ public class PostServiceImpl implements PostService {
      */
     @Override
     public JSONResult queryPostById(String postId) {
-        Post post = postMapper.selectByPrimaryKey(postId);
+//        Post post = postMapper.selectByPrimaryKey(postId);
+        Map<String,String> post = postCustomMapper.queryPostUserById(postId);
         return JSONResult.ok(post);
     }
 
@@ -72,6 +77,7 @@ public class PostServiceImpl implements PostService {
         criteria.andEqualTo("authorId",userId);
         List<Post> posts = postMapper.selectByExample(example);
         PageInfo pageInfo = new PageInfo<>(page1);
+        map.put("total",pageInfo.getTotal());
         map.put("pages",pageInfo.getPages());
         map.put("dataList",posts);
         return JSONResult.ok(map);

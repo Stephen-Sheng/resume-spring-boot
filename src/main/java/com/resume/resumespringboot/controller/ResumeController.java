@@ -60,4 +60,20 @@ public class ResumeController {
         return jsonResult;
     }
 
+    @PostMapping("editResumeName")
+    public JSONResult editResumeName(@RequestBody Map<String,String> map, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            Map<String,String> errorMap = UserController.getErrors(bindingResult);
+            return JSONResult.errorMap(errorMap);
+        }
+        JSONResult jsonResult = resumeService.editName(map.get("id"),map.get("newName"));
+        return jsonResult;
+    }
+
+    @GetMapping("deleteResume/{resumeId}")
+    public JSONResult deleteResume(@PathVariable String resumeId){
+        JSONResult jsonResult = resumeService.deleteResume(resumeId);
+        return jsonResult;
+    }
+
 }

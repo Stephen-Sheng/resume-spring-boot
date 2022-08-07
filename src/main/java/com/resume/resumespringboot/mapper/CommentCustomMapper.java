@@ -19,4 +19,7 @@ public interface CommentCustomMapper {
 
     @Select("SELECT comment.id as comId,comment.comment_text as text,comment.posted_by as userId,user.username as fullName FROM comment JOIN comment_relationship ON comment.id = comment_relationship.child_comment_id JOIN user ON comment.posted_by = user.id WHERE comment_relationship.child_comment_id=#{commentId}")
     public List<Map<String,String>> queryCommentItemByChild(@Param("commentId") String commentId);
+
+    @Select("SET foreign_key_checks=0")
+    public void setKeyCheck();
 }
