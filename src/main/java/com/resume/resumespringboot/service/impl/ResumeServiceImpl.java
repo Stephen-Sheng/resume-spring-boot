@@ -3,6 +3,7 @@ package com.resume.resumespringboot.service.impl;
 
 import com.resume.resumespringboot.mapper.ResumeMapper;
 import com.resume.resumespringboot.mapper.ResumeCustomMapper;
+import com.resume.resumespringboot.pojo.Comment;
 import com.resume.resumespringboot.pojo.CommentRelationship;
 import com.resume.resumespringboot.pojo.Resume;
 import com.resume.resumespringboot.service.ResumeService;
@@ -87,6 +88,12 @@ public class ResumeServiceImpl implements ResumeService {
     public JSONResult deleteResume(String id) {
 
         resumeMapper.deleteByPrimaryKey(id);
+        return JSONResult.ok();
+    }
+
+    @Override
+    public JSONResult updateResume(Resume resume) {
+        resumeMapper.updateByPrimaryKeySelective(resume);
         return JSONResult.ok();
     }
 

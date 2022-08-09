@@ -76,4 +76,14 @@ public class ResumeController {
         return jsonResult;
     }
 
+    @PostMapping("updateResume")
+    public JSONResult updateResume(@RequestBody Resume resume,BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            Map<String,String> errorMap = UserController.getErrors(bindingResult);
+            return JSONResult.errorMap(errorMap);
+        }
+        JSONResult jsonResult = resumeService.updateResume(resume);
+        return jsonResult;
+    }
+
 }

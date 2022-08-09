@@ -18,4 +18,6 @@ public interface ResumeService {
     public JSONResult editName(String id, String newName);
 
     public JSONResult deleteResume(String id);
+    public JSONResult updateResume(Resume resume);
+
 }
