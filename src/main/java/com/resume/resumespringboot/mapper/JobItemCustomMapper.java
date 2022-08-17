@@ -13,6 +13,6 @@ import java.util.Map;
 
 public interface JobItemCustomMapper {
 
-    @Select("SELECT jobitem.*,job.website,job.logo,job.description,job.category,job.employee FROM jobitem INNER JOIN job ON jobitem.company = job.company WHERE jobitem.id=#{itemId}")
+    @Select("SELECT jobitem.*,job.website,job.logo,job.description,job.category,job.employee FROM jobitem INNER JOIN job ON jobitem.companyId = job.id WHERE jobitem.id=#{itemId}")
     public Map<String,String> queryJobItemById(@Param("itemId") String itemId);
 }

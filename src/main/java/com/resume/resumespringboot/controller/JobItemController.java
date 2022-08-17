@@ -62,7 +62,7 @@ public class JobItemController {
         if (page == null) {
             page = 1;
         }
-        int pageSize = 1;
+        int pageSize = 4;
         JSONResult jsonResult = jobItemService.queryRecomJobList(page,pageSize);
         return jsonResult;
     }
